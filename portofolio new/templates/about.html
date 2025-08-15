@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}About - Mahmoud Yasser Mohamed{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-user me-3"></i>About Me
+                </h1>
+                <p class="lead">
+                    Cybersecurity professional passionate about ethical hacking and security research
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Professional Background</h2>
+                <p class="lead mb-4">
+                    {{ portfolio.about }}
+                </p>
+                <p class="mb-4">
+                    I specialize in identifying and exploiting security vulnerabilities to help organizations strengthen their defenses. 
+                    My approach combines technical expertise with ethical principles, ensuring that security assessments are conducted 
+                    responsibly and professionally.
+                </p>
+                <p class="mb-4">
+                    With a strong foundation in cybersecurity fundamentals and hands-on experience with industry-standard tools, 
+                    I provide comprehensive security assessments that help organizations understand and mitigate their security risks.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('projects_page') }}" class="btn btn-primary">
+                        <i class="fas fa-project-diagram me-2"></i>View Projects
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold mb-4">
+                            <i class="fas fa-info-circle me-2"></i>Contact Information
+                        </h3>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Name</h6>
+                                        <small class="text-muted">{{ portfolio.name }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-briefcase fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Title</h6>
+                                        <small class="text-muted">{{ portfolio.title }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Email</h6>
+                                        <small class="text-muted">{{ portfolio.email }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-phone fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Phone</h6>
+                                        <small class="text-muted">{{ portfolio.phone }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Location</h6>
+                                        <small class="text-muted">{{ portfolio.location }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold mb-3">Technical Skills</h2>
+                <p class="lead text-muted">Comprehensive expertise in cybersecurity and penetration testing</p>
+            </div>
+        </div>
+        
+        <!-- Penetration Testing Skills -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4 text-center">
+                    <i class="fas fa-bug me-2"></i>Penetration Testing
+                </h3>
+                <div class="text-center">
+                    {% for skill in skills.penetration_testing %}
+                        <span class="skill-badge">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Tools -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4 text-center">
+                    <i class="fas fa-tools me-2"></i>Security Tools & Technologies
+                </h3>
+                <div class="text-center">
+                    {% for tool in skills.tools %}
+                        <span class="skill-badge">{{ tool }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Programming Languages -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4 text-center">
+                    <i class="fas fa-code me-2"></i>Programming & Scripting
+                </h3>
+                <div class="text-center">
+                    {% for lang in skills.programming %}
+                        <span class="skill-badge">{{ lang }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Frameworks & Methodologies -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4 text-center">
+                    <i class="fas fa-sitemap me-2"></i>Frameworks & Methodologies
+                </h3>
+                <div class="text-center">
+                    {% for framework in skills.frameworks %}
+                        <span class="skill-badge">{{ framework }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="fw-bold mb-4">Certifications & Professional Development</h2>
+                <div class="row g-4">
+                    {% for cert in skills.certifications %}
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-certificate fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold mb-3">{{ cert }}</h5>
+                                <p class="text-muted">
+                                    {% if cert == 'CCNA' %}
+                                        Cisco Certified Network Associate - Professional networking certification
+                                    {% elif cert == 'CEH (In Progress)' %}
+                                        Certified Ethical Hacker - Advanced ethical hacking and penetration testing certification
+                                    {% elif cert == 'CompTIA Security+' %}
+                                        CompTIA Security+ - Entry-level cybersecurity certification
+                                    {% elif cert == 'OSCP (Planned)' %}
+                                        Offensive Security Certified Professional - Advanced penetration testing certification
+                                    {% else %}
+                                        Professional certification in cybersecurity and ethical hacking
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Philosophy -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="fw-bold mb-4">My Approach to Security</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-start">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>Ethical Hacking
+                            </h5>
+                            <p class="text-muted">Conducting security assessments with integrity and responsibility, always following ethical guidelines and legal frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-start">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-search text-primary me-2"></i>Comprehensive Analysis
+                            </h5>
+                            <p class="text-muted">Thorough vulnerability assessments that identify both technical and process-related security weaknesses.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-start">
+                            <h5 class="fw-bold mb-3">
+                                <i class="fas fa-lightbulb text-primary me-2"></i>Practical Solutions
+                            </h5>
+                            <p class="text-muted">Providing actionable recommendations and remediation strategies to improve security posture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

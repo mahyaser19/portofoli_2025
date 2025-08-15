@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Mahmoud Yasser Mohamed{% endblock %}
+
+{% block content %}
+<!-- Projects Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-project-diagram me-3"></i>Security Projects
+                </h1>
+                <p class="lead">
+                    A showcase of my penetration testing engagements and security assessments
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4 class="card-title fw-bold">{{ project.title }}</h4>
+                            <span class="badge bg-primary">{{ project.category }}</span>
+                        </div>
+                        <p class="card-text">{{ project.description }}</p>
+                        
+                        <div class="mb-3">
+                            <h6 class="fw-bold mb-2">Technologies & Tools Used:</h6>
+                            <div>
+                                {% for tech in project.technologies %}
+                                    <span class="skill-badge">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>{{ project.date }}
+                            </small>
+                            <a href="{{ url_for('project', project_id=project.id) }}" class="btn btn-primary">
+                                <i class="fas fa-eye me-2"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Project Categories -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold mb-3">Areas of Expertise</h2>
+                <p class="lead text-muted">Specialized security testing services</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Web Security</h5>
+                        <p class="card-text">Comprehensive testing of web applications, APIs, and web services to identify vulnerabilities and security weaknesses.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">OWASP Top 10</span>
+                            <span class="skill-badge">API Security</span>
+                            <span class="skill-badge">Authentication Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Network Security</h5>
+                        <p class="card-text">Infrastructure penetration testing including network devices, servers, and internal systems security assessment.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Network Enumeration</span>
+                            <span class="skill-badge">Privilege Escalation</span>
+                            <span class="skill-badge">Post Exploitation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Mobile Security</h5>
+                        <p class="card-text">Security assessment of mobile applications including reverse engineering, API testing, and data protection analysis.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Reverse Engineering</span>
+                            <span class="skill-badge">API Testing</span>
+                            <span class="skill-badge">Data Protection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+    <div class="container text-center">
+        <h3 class="fw-bold mb-3 text-white">Ready to Secure Your Systems?</h3>
+        <p class="lead mb-4 text-white">Let's discuss your security needs and how I can help protect your infrastructure</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">
+            <i class="fas fa-paper-plane me-2"></i>Start a Security Assessment
+        </a>
+    </div>
+</section>
+{% endblock %} 

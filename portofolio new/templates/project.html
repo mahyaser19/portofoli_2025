@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - Mahmoud Yasser Mohamed{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-5 fw-bold mb-4">{{ project.title }}</h1>
+                <div class="d-flex justify-content-center align-items-center text-white-50">
+                    <span class="me-3">
+                        <i class="fas fa-tag me-1"></i>{{ project.category }}
+                    </span>
+                    <span>
+                        <i class="fas fa-calendar me-1"></i>{{ project.date }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <div class="project-content">
+                            <h3 class="fw-bold mb-3">Project Overview</h3>
+                            <p class="lead mb-4">{{ project.description }}</p>
+                            
+                            <h4 class="fw-bold mb-3 mt-4">Technologies & Tools Used</h4>
+                            <div class="mb-4">
+                                {% for tech in project.technologies %}
+                                    <span class="skill-badge">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                            
+                            {% if project.id == 1 %}
+                            <h4 class="fw-bold mb-3">Web Application Security Assessment Details</h4>
+                            <p>This comprehensive security assessment focused on identifying vulnerabilities in a financial web application. The assessment covered multiple attack vectors and security controls.</p>
+                            
+                            <h5 class="fw-bold mb-3 mt-4">Key Findings:</h5>
+                            <ul class="mb-4">
+                                <li><strong>SQL Injection Vulnerabilities:</strong> Discovered multiple SQL injection points in user input fields</li>
+                                <li><strong>Cross-Site Scripting (XSS):</strong> Identified reflected and stored XSS vulnerabilities</li>
+                                <li><strong>Authentication Bypass:</strong> Found weaknesses in session management</li>
+                                <li><strong>Information Disclosure:</strong> Sensitive information exposed through error messages</li>
+                            </ul>
+                            
+                            <div class="bg-light p-4 rounded mb-4">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="fas fa-shield-alt me-2"></i>Security Recommendations
+                                </h6>
+                                <ul class="mb-0">
+                                    <li>Implement input validation and parameterized queries</li>
+                                    <li>Add Content Security Policy (CSP) headers</li>
+                                    <li>Strengthen session management and authentication</li>
+                                    <li>Configure proper error handling and logging</li>
+                                </ul>
+                            </div>
+                            
+                            {% elif project.id == 2 %}
+                            <h4 class="fw-bold mb-3">Network Infrastructure Security Audit Details</h4>
+                            <p>This network penetration testing engagement focused on assessing the security posture of corporate infrastructure, including network devices, servers, and internal systems.</p>
+                            
+                            <h5 class="fw-bold mb-3 mt-4">Assessment Scope:</h5>
+                            <ul class="mb-4">
+                                <li><strong>Network Enumeration:</strong> Comprehensive port scanning and service identification</li>
+                                <li><strong>Vulnerability Assessment:</strong> Systematic identification of security weaknesses</li>
+                                <li><strong>Privilege Escalation:</strong> Testing for potential privilege escalation vectors</li>
+                                <li><strong>Post Exploitation:</strong> Assessing the impact of successful compromises</li>
+                            </ul>
+                            
+                            <div class="bg-light p-4 rounded mb-4">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="fas fa-tools me-2"></i>Tools & Techniques Used
+                                </h6>
+                                <ul class="mb-0">
+                                    <li>Nmap for network discovery and port scanning</li>
+                                    <li>Metasploit Framework for exploitation</li>
+                                    <li>Wireshark for network traffic analysis</li>
+                                    <li>Nessus for vulnerability scanning</li>
+                                </ul>
+                            </div>
+                            
+                            {% elif project.id == 3 %}
+                            <h4 class="fw-bold mb-3">Mobile Application Security Testing Details</h4>
+                            <p>This mobile security assessment involved reverse engineering and analyzing the security posture of mobile applications, focusing on data protection and API security.</p>
+                            
+                            <h5 class="fw-bold mb-3 mt-4">Testing Methodology:</h5>
+                            <ul class="mb-4">
+                                <li><strong>Static Analysis:</strong> Code review and reverse engineering</li>
+                                <li><strong>Dynamic Analysis:</strong> Runtime behavior analysis</li>
+                                <li><strong>API Security Testing:</strong> Backend API vulnerability assessment</li>
+                                <li><strong>Data Storage Analysis:</strong> Local data protection evaluation</li>
+                            </ul>
+                            
+                            <div class="bg-light p-4 rounded mb-4">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="fas fa-mobile-alt me-2"></i>Mobile Security Focus Areas
+                                </h6>
+                                <ul class="mb-0">
+                                    <li>Secure data storage and transmission</li>
+                                    <li>Authentication and authorization mechanisms</li>
+                                    <li>Code obfuscation and anti-tampering measures</li>
+                                    <li>API endpoint security and validation</li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <hr class="my-5">
+                        
+                        <!-- Project Metrics -->
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <div class="border-end">
+                                    <h4 class="fw-bold text-primary">High</h4>
+                                    <p class="text-muted mb-0">Critical Vulnerabilities</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="border-end">
+                                    <h4 class="fw-bold text-primary">Medium</h4>
+                                    <p class="text-muted mb-0">Security Issues</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="fw-bold text-primary">Low</h4>
+                                <p class="text-muted mb-0">Informational Findings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{{ url_for('projects_page') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Projects
+                    </a>
+                    <div class="d-flex gap-2">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-2"></i>Request Similar Assessment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-4 text-center">Other Security Projects</h3>
+                <div class="row g-4">
+                    {% for p in projects %}
+                        {% if p.id != project.id %}
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ p.title }}</h5>
+                                    <p class="card-text text-muted">{{ p.description[:100] }}...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">
+                                            <i class="fas fa-calendar me-1"></i>{{ p.date }}
+                                        </small>
+                                        <a href="{{ url_for('project', project_id=p.id) }}" class="btn btn-primary btn-sm">
+                                            View Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
